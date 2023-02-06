@@ -1,0 +1,116 @@
+
+<html>
+    <body style="background-color:#E0E0E0  ;">
+        <h1 style="font-family:Cambria; font-size:50px; color: #4527A0; text-align: center;"><b>🏵️ IRIS FLOWER PREDICTION 🏵️</b></h1>
+        
+        <form name = 'input-form' action='/predict' method="POST">
+            <fieldset style="float: left; height:550; width: 550px; background-color:#BDBDBD; padding: 10px;margin-top: 0px; margin-left: 50px;border-radius: 10px; border: 5px solid #4527A0; text-align: center; ">
+                <legend><h3 style="color:#E0E0E0;font-family:Cambria;font-size:30px;background-color: #4527A0;border: 2px solid #4527A0;border-radius: 10px;">&nbsp;USER  INPUTS&nbsp;</h3></legend>
+
+                <p style="font-family:Cambria;font-size:20px;color:#4527A0; text-align: center;margin-top: 25px;"><b>Sepal Length (in cm)  :  </b><input type='text' name='sepal_length' placeholder="Enter value in cm..."> </p>
+                <br>
+                <p style="font-family:Cambria;font-size:20px;color:#4527A0; text-align: center;"><b>Sepal Width (in cm)  : </b> <input type='text' name='sepal_width' placeholder="Enter value in cm..."> </p> 
+                <br>
+                <p style="font-family:Cambria;font-size:20px;color:#4527A0; text-align: center;"><b>Petal Length (in cm)  : </b> <input type='text' name='petal_length' placeholder="Enter value in cm..."> </p> 
+                <br>
+                <p style="font-family:Cambria;font-size:20px;color:#4527A0; text-align: center;"><b>Petal Width (in cm)  : </b> <input type='text' name='petal_width' placeholder="Enter value in cm..."> </p> 
+            </fieldset>
+            
+            <style> 
+                
+                input {
+                    line-height: 40px;
+                    font-size:20px;
+                    background-color: #E0E0E0;
+                    border: 2px solid #4527A0;
+                    border-radius: 10px;
+                    color: #4527A0;
+                    font-weight: bold;
+                    
+                    }
+                input:focus { 
+                    outline: none !important;
+                    border-color: #4527A0;
+                    box-shadow: 0 0 20px #4527A0;
+                }
+                ::placeholder {
+                    color: #BDBDBE;
+                    font-size:18px;
+                    text-align: left;
+                    margin-bottom: 20px;
+                    background-color: #E0E0E0;
+                    
+                    }
+                img {
+                    line-height: 20px;
+                    font-size:20px;
+                    background-color: #E0E0E0;
+                    border: 2px solid #4527A0;
+                    border-radius: 15px;
+                    padding: 7px;
+
+                    }
+                #rcorners2 {
+                    border-radius: 10px;
+                    border: 10px solid #4527A0;
+                    padding: 20px;      
+                    }
+                fieldset {
+                    background-color: #BDBDBD;
+                    border: 2px solid #4527A0;
+                    
+                    
+                    }
+                .button {
+                    background-color: #4527A0;
+                    border: 2px solid #4527A0;
+                    color: #E0E0E0;
+                    padding: 10px 24px;
+                    border-radius: 7px;
+                    text-align: center;
+                    text-decoration: none;
+                    display: inline-block;
+                    font-size: 16px;
+                    margin: 4px 2px;
+                    cursor: pointer;      
+                    }
+                .button span {
+                    cursor: pointer;
+                    display: inline-block;
+                    position: relative;
+                    transition: 0.5s;
+                    }
+                .button span:after {
+                    content: '\00bb';
+                    position: absolute;
+                    opacity: 0;
+                    top: 0;
+                    right: -20px;
+                    transition: 0.5s;
+                    }
+            </style>                       
+
+            <fieldset style="float: left; height:66px; width: 100px; background-color:#BDBDBD; padding: 10px;border-radius: 10px;  border: 5px solid #4527A0; margin-top: 250px;margin-left: 20px;margin-right: 20px;">
+                <button class="button" style="vertical-align:middle;font-family:Cambria;font-size:30px""><span><b>PREDICT</b></span></button>
+                
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                <div class="footer" style="font-size:15px;color:#4527A0;">Made with<span style="font-size:23px;color:red;"> &hearts;</span> by <b>dSachin</b></div>
+            </fieldset>
+
+            <fieldset style="float: left; height:550; width: 550px; background-color:#BDBDBD; padding: 10px;border-radius: 20px;  border: 5px solid #4527A0;text-align: center;">
+                <legend><h3 style="color:#E0E0E0;font-family:Cambria;font-size:30px;background-color: #4527A0;border: 2px solid #4527A0;border-radius: 10px;">&nbsp;FLOWER  TYPE&nbsp;</h3></legend>
+                
+                {% if result %}
+                    <p style="font-family:Cambria;text-align: center; color:#4527A0;font-size:30px; margin-top: 0px;"><b>{{result}}</b> </p>
+                    <img src="static/{{result}}.jpg" alt=""width="500" height="340" />
+                {% else %}
+                    <br><br><br>
+                    <img src="static\flower.gif" alt=""width="500" height="340" />
+                {% endif %}
+            </fieldset>
+        </form>
+
+        
+    </body>
+</html>
+
